@@ -9,8 +9,8 @@ Content (Roadmap)
 =================
 
 * Chapter 1 - Your First Android Application ✅
-* Chapter 2 - Android and Model-View-Controller - *Work in Progress (Branch Chapter-2-AndroidAndModelViewController)*
-* Chapter 3 - The Activity Lifecycle
+* Chapter 2 - Android and Model-View-Controller ✅
+* Chapter 3 - The Activity Lifecycle - *Work in Progress (Branch Chapter-3-TheActivityLifecycle)*
 * Chapter 4 - Debugging Android Apps
 * Chapter 5 - Your Second Activity
 * Chapter 6 - Android SDK Versions and Compatibility
