@@ -3,13 +3,13 @@
 
 This repo contains my implementation of the book **Android Programming: The Big Nerd Ranch Guide** on its second edition.
 
-The result of following every chapter of the book can be found on its own branch.
+The result of following every chapter of the book can be found on its own branch. Once a chapter is completed, it wil be merged to master which eventually will containt the final result of the book.
 
-Content
-=======
+Content (Roadmap)
+=================
 
-* Chapter 1 - Your First Android Application - *Work in Progress (Branch Chapter-1-YourFirstAndroidApplication)*
-* Chapter 2 - Android and Model-View-Controller
+* Chapter 1 - Your First Android Application ✅
+* Chapter 2 - Android and Model-View-Controller - *Work in Progress (Branch Chapter-2-AndroidAndModelViewController)*
 * Chapter 3 - The Activity Lifecycle
 * Chapter 4 - Debugging Android Apps
 * Chapter 5 - Your Second Activity
