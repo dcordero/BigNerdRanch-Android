@@ -15,8 +15,8 @@ Content (Roadmap)
 * Chapter 3 - The Activity Lifecycle ✅
 * Chapter 4 - Debugging Android Apps ✅
 * Chapter 5 - Your Second Activity ✅
-* Chapter 6 - Android SDK Versions and Compatibility - *Work in Progress (Branch Chapter-6-AndroidSDKVersionsAndCompatibility)*
-* Chapter 7 - UI Fragments and the Fragment Manager
+* Chapter 6 - Android SDK Versions and Compatibility ✅
+* Chapter 7 - UI Fragments and the Fragment Manager - *Work in Progress (Branch Chapter-7-UIFragmentsAndTheFragmentManager)*
 * Chapter 8 - Creating User Interfaces with Layouts and Widgets
 * Chapter 9 - Displaying Lists with RecyclerView
 * Chapter 10 - Using Fragments Arguments
