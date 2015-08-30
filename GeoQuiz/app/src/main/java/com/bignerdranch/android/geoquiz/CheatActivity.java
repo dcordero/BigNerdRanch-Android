@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -52,20 +53,22 @@ public class CheatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                int cx = mShowAnswer.getWidth() / 2;
-                int cy = mShowAnswer.getHeight() / 2;
-                float radius = mShowAnswer.getWidth();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    int cx = mShowAnswer.getWidth() / 2;
+                    int cy = mShowAnswer.getHeight() / 2;
+                    float radius = mShowAnswer.getWidth();
 
-                Animator animator = ViewAnimationUtils.createCircularReveal(mShowAnswer, cx, cy, radius, 0);
-                animator.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        super.onAnimationEnd(animation);
-                        mAnswerTextView.setVisibility(View.VISIBLE);
-                        mShowAnswer.setVisibility(View.INVISIBLE);
-                    }
-                });
-                animator.start();
+                    Animator animator = ViewAnimationUtils.createCircularReveal(mShowAnswer, cx, cy, radius, 0);
+                    animator.addListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            mAnswerTextView.setVisibility(View.VISIBLE);
+                            mShowAnswer.setVisibility(View.INVISIBLE);
+                        }
+                    });
+                    animator.start();
+                }
 
                 cheat();
             }
