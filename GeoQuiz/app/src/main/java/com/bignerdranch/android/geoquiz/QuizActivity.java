@@ -17,6 +17,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
+    private static final String KEY_CHEATED = "cheated";
     private static final int REQUEST_CODE_CHEAT = 0;
 
     private Button mTrueButton;
@@ -35,7 +36,7 @@ public class QuizActivity extends AppCompatActivity {
     };
 
     private int mCurrentIndex = 0;
-    private boolean mIsCheater;
+    private boolean mIsCheater = false;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -43,6 +44,7 @@ public class QuizActivity extends AppCompatActivity {
 
         Log.i(TAG, "onSaveInstanceState");
         outState.putInt(KEY_INDEX, mCurrentIndex);
+        outState.putBoolean(KEY_CHEATED, mIsCheater);
     }
 
     @Override
@@ -105,6 +107,7 @@ public class QuizActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+            mIsCheater = savedInstanceState.getBoolean(KEY_CHEATED, false);
         }
 
         updateQuestion();
@@ -112,18 +115,19 @@ public class QuizActivity extends AppCompatActivity {
 
     private void jumpToPreviousQuestion() {
         mCurrentIndex = (mCurrentIndex == 0) ? mQuestionBank.length - 1 : mCurrentIndex - 1;
+        mIsCheater = false;
         updateQuestion();
     }
 
     private void jumpToNextQuestion(){
         mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+        mIsCheater = false;
         updateQuestion();
     }
 
     private void updateQuestion() {
         int question = mQuestionBank[mCurrentIndex].getTextResId();
         mQuestionTextView.setText(question);
-        mIsCheater = false;
     }
 
     private void checkAnswer(boolean userPressedTrue) {
