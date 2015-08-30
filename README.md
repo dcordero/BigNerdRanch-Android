@@ -3,6 +3,8 @@
 
 This repo contains my implementation of the book **Android Programming: The Big Nerd Ranch Guide** on its second edition.
 
+![](cover.jpg)
+
 The result of following every chapter of the book can be found on its own branch. Once a chapter is completed, it wil be merged to master which eventually will containt the final result of the book.
 
 Content (Roadmap)
