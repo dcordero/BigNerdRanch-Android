@@ -15,15 +15,24 @@ public class CheatActivity extends AppCompatActivity {
     private static final String EXTRA_ANSWER_IS_TRUE = "com.bignerdranch.android.geoquiz.answer_is_true";
     private static final String EXTRA_ANSWER_SHOWN = "com.bignerdranch.android.geoquiz.answer_shown";
 
+    private static final String KEY_CHEATED = "cheated";
+
     private TextView mAnswerTextView;
     private Button mShowAnswer;
 
     private boolean mAnswerIsTrue;
+    private boolean mCheated = false;
 
     public static Intent newIntent(Context packageContext, boolean answerIsTrue) {
         Intent intent = new Intent(packageContext, CheatActivity.class);
         intent.putExtra(EXTRA_ANSWER_IS_TRUE, answerIsTrue);
         return intent;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(KEY_CHEATED, mCheated);
     }
 
     @Override
@@ -39,14 +48,25 @@ public class CheatActivity extends AppCompatActivity {
         mShowAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAnswerTextView.setText(mAnswerIsTrue ? R.string.true_button : R.string.false_button);
-                setAnswerShownResult(true);
+                cheat();
             }
         });
+
+        if (savedInstanceState != null) {
+            if (savedInstanceState.getBoolean(KEY_CHEATED, false)) {
+                cheat();
+            }
+        }
     }
 
     public static boolean wasAnswerShown(Intent intent) {
         return intent.getBooleanExtra(EXTRA_ANSWER_SHOWN, false);
+    }
+
+    private void cheat() {
+        mCheated = true;
+        mAnswerTextView.setText(mAnswerIsTrue ? R.string.true_button : R.string.false_button);
+        setAnswerShownResult(true);
     }
 
     private void setAnswerShownResult(boolean isAnswerShown) {
