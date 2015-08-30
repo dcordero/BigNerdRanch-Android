@@ -23,6 +23,7 @@ public class CheatActivity extends AppCompatActivity {
 
     private TextView mAnswerTextView;
     private Button mShowAnswer;
+    private TextView mApiLevelTextView;
 
     private boolean mAnswerIsTrue;
     private boolean mCheated = false;
@@ -45,6 +46,9 @@ public class CheatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cheat);
 
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
+
+        mApiLevelTextView = (TextView)findViewById(R.id.api_level_text_view);
+        mApiLevelTextView.setText(getString(R.string.api_level) + Build.VERSION.SDK_INT);
 
         mAnswerTextView = (TextView)findViewById(R.id.answer_text_view);
 

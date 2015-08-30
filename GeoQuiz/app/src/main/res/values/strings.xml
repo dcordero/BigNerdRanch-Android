@@ -22,4 +22,6 @@
     <string name="judgment_toast">Cheating is wrong</string>
     <string name="title_activity_cheat">Cheat</string>
 
+    <string name="api_level">API Level: </string>
+
 </resources>
