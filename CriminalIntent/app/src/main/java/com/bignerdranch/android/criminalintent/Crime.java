@@ -12,7 +12,7 @@ public class Crime {
     }
 
     // Accesors
-    
+
     public UUID getId() {
         return mId;
     }
