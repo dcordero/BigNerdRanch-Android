@@ -17,8 +17,8 @@ Content (Roadmap)
 * Chapter 5 - Your Second Activity ✅
 * Chapter 6 - Android SDK Versions and Compatibility ✅
 * Chapter 7 - UI Fragments and the Fragment Manager ✅
-* Chapter 8 - Creating User Interfaces with Layouts and Widgets - *Work in Progress (Branch Chapter-8-CreatingUserInterfacesWithLayoutsAndWidgets)*
-* Chapter 9 - Displaying Lists with RecyclerView
+* Chapter 8 - Creating User Interfaces with Layouts and Widgets ✅
+* Chapter 9 - Displaying Lists with RecyclerView - *Work in Progress (Branch Chapter-9-DisplayingListsWithRecyclerView)*
 * Chapter 10 - Using Fragments Arguments
 * Chapter 11 - Using ViewPager
 * Chapter 12 - Dialogs
