@@ -14,8 +14,11 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.util.UUID;
 
 public class CrimeFragment extends Fragment {
+
+    private static final String ARG_CRIME_ID = "crime_id";
 
     private Crime mCrime;
 
@@ -23,10 +26,21 @@ public class CrimeFragment extends Fragment {
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
 
+    public static CrimeFragment newInstance(UUID crimeId) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(ARG_CRIME_ID, crimeId);
+
+        CrimeFragment crimeFragment = new CrimeFragment();
+        crimeFragment.setArguments(bundle);
+        return crimeFragment;
+    }
+
     @Override public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        mCrime = new Crime();
+
+        UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
+        mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
     }
 
     @Nullable @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -48,6 +62,7 @@ public class CrimeFragment extends Fragment {
         });
 
         mTitleField = (TextView)view.findViewById(R.id.crime_title);
+        mTitleField.setText(mCrime.getTitle());
         mTitleField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
