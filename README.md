@@ -20,8 +20,8 @@ Content (Roadmap)
 | 6       | Android SDK Versions and Compatibility            | ✅
 | 7       | UI Fragments and the Fragment Manager             | ✅
 | 8       | Creating User Interfaces with Layouts and Widgets | ✅
-| 9       | Displaying Lists with RecyclerView                | ♻️ Branch Chapter-9-DisplayingListsWithRecyclerView
-| 10      | Using Fragments Arguments                         |
+| 9       | Displaying Lists with RecyclerView                | ✅
+| 10      | Using Fragments Arguments                         | ♻️ Branch Chapter-10-UsingFragmentsArguments
 | 11      | Using ViewPager                                   |
 | 12      | Dialogs                                           |
 | 13      | The Toolbar                                       |
