@@ -23,4 +23,16 @@ public class CrimeListFragment extends Fragment {
 
         return view;
     }
+
+
+    private class CrimeHolder extends RecyclerView.ViewHolder {
+
+        public TextView mTitleTextView;
+
+        public CrimeHolder(View itemView) {
+            super (itemView);
+
+            mTitleTextView = (TextView) itemView;
+        }
+    }
 }
