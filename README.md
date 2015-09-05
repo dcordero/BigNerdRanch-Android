@@ -22,8 +22,8 @@ Content (Roadmap)
 | 8       | Creating User Interfaces with Layouts and Widgets | ✅
 | 9       | Displaying Lists with RecyclerView                | ✅
 | 10      | Using Fragments Arguments                         | ✅
-| 11      | Using ViewPager                                   | ♻️ Branch Chapter-11-UsingViewPager
-| 12      | Dialogs                                           |
+| 11      | Using ViewPager                                   | ✅
+| 12      | Dialogs                                           | ♻️  Branch Chapter-12-Dialogs
 | 13      | The Toolbar                                       |
 | 14      | SQLite Databases                                  |
 | 15      | Implicit Intents                                  |
