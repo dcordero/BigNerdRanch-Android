@@ -23,7 +23,9 @@ import java.util.UUID;
 public class CrimeFragment extends Fragment {
 
     private static final String ARG_CRIME_ID = "crime_id";
+
     private static final String DIALOG_DATE = "DialogDate";
+    private static final String DIALOG_TIME = "DialogTime";
 
     private static final int REQUEST_DATE = 0;
 
@@ -31,6 +33,7 @@ public class CrimeFragment extends Fragment {
 
     private TextView mTitleField;
     private Button mDateButton;
+    private Button mTimeButton;
     private CheckBox mSolvedCheckBox;
 
     public static CrimeFragment newInstance(UUID crimeId) {
@@ -66,9 +69,26 @@ public class CrimeFragment extends Fragment {
         mDateButton.setText(dateFormat.format(mCrime.getDate()));
     }
 
+    private void updateTimeButton() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:MM");
+        mTimeButton.setText(dateFormat.format(mCrime.getDate()));
+    }
+
     @Nullable @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_crime, container, false);
+
+        mTimeButton = (Button)view.findViewById(R.id.crime_time);
+        updateTimeButton();
+
+        mTimeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                TimePickerFragment dialog = new TimePickerFragment();
+                dialog.show(fragmentManager, DIALOG_TIME);
+            }
+        });
 
         mDateButton = (Button)view.findViewById(R.id.crime_date);
         updateDateButton();
