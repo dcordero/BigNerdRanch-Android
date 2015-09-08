@@ -23,8 +23,8 @@ Content (Roadmap)
 | 9       | Displaying Lists with RecyclerView                | ✅
 | 10      | Using Fragments Arguments                         | ✅
 | 11      | Using ViewPager                                   | ✅
-| 12      | Dialogs                                           | ♻️  Branch Chapter-12-Dialogs
-| 13      | The Toolbar                                       |
+| 12      | Dialogs                                           | ✅
+| 13      | The Toolbar                                       | ♻️  Branch Chapter-13-TheToolbar
 | 14      | SQLite Databases                                  |
 | 15      | Implicit Intents                                  |
 | 16      | Taking Pictures with Intents                      |
