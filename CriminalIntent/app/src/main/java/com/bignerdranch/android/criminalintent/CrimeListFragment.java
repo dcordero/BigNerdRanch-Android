@@ -101,6 +101,8 @@ public class CrimeListFragment extends Fragment {
         else {
             mCrimeAdapter.notifyDataSetChanged();
         }
+
+        updateSubtitle();
     }
 
     void updateSubtitle() {
