@@ -22,15 +22,25 @@ import java.util.List;
 
 public class CrimeListFragment extends Fragment {
 
+    private static final String SAVED_SUBTITLE_VISIBLE = "subtitle_visible";
+
     private RecyclerView mRecyclerView;
     private CrimeAdapter mCrimeAdapter;
 
     private boolean mSubtitleVisible;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(SAVED_SUBTITLE_VISIBLE, mSubtitleVisible);
+    }
+
+    @Override public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        if (savedInstanceState != null) {
+            mSubtitleVisible = savedInstanceState.getBoolean(SAVED_SUBTITLE_VISIBLE);
+        }
     }
 
     @Override public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -46,8 +56,7 @@ public class CrimeListFragment extends Fragment {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_new_crime:
                 Crime crime = new Crime();
@@ -71,8 +80,7 @@ public class CrimeListFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onResume() {
+    @Override public void onResume() {
         super.onResume();
 
         updateUI();
@@ -164,20 +172,17 @@ public class CrimeListFragment extends Fragment {
             mCrimes = crimes;
         }
 
-        @Override
-        public CrimeHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        @Override public CrimeHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
             View view = layoutInflater.inflate(R.layout.list_item_crime, viewGroup, false);
             return new CrimeHolder(view);
         }
 
-        @Override
-        public void onBindViewHolder(CrimeHolder crimeHolder, int position) {
+        @Override public void onBindViewHolder(CrimeHolder crimeHolder, int position) {
            crimeHolder.bindCrime(mCrimes.get(position));
         }
 
-        @Override
-        public int getItemCount() {
+        @Override public int getItemCount() {
             return mCrimes.size();
         }
     }
