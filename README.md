@@ -24,8 +24,8 @@ Content (Roadmap)
 | 10      | Using Fragments Arguments                         | ✅
 | 11      | Using ViewPager                                   | ✅
 | 12      | Dialogs                                           | ✅
-| 13      | The Toolbar                                       | ♻️  Branch Chapter-13-TheToolbar
-| 14      | SQLite Databases                                  |
+| 13      | The Toolbar                                       | ✅
+| 14      | SQLite Databases                                  | ♻️  Branch Chapter-14-SQLiteDatabases
 | 15      | Implicit Intents                                  |
 | 16      | Taking Pictures with Intents                      |
 | 17      | Two-Pane Master-Detail Interfaces                 |
