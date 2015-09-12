@@ -9,5 +9,13 @@
     <string name="crime_details_label">Details</string>
     <string name="crime_solved_label">Solved</string>
     <string name="date_picker_title">Date of crime:</string>
+    <string name="new_crime">New crime</string>
+    <string name="delete_crime">Delete crime</string>
+    <string name="show_subtitle">Show Subtitle</string>
+    <string name="hide_subtitle">Hide Subtitle</string>
 
+    <plurals name="subtitle_plural">
+        <item quantity="one">%1s crime</item>
+        <item quantity="other">%1s crimes</item>
+    </plurals>
 </resources>
