@@ -19,6 +19,10 @@ public class CrimeLab {
         return sCrimeLab;
     }
 
+    public void removeCrime(Crime crime) {
+        mCrimes.remove(crime);
+    }
+
     public void addCrime(Crime crime) {
         mCrimes.add(crime);
     }
