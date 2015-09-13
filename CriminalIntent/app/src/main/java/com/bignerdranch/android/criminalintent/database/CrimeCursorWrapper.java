@@ -27,7 +27,7 @@ public class CrimeCursorWrapper extends CursorWrapper {
         crime.setDate(new Date(date));
         crime.setSolved(isSolved != 0);
         crime.setSuspect(suspect);
-        
+
         return crime;
     }
 }
