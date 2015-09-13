@@ -39,6 +39,7 @@ public class CrimeFragment extends Fragment {
     private TextView mTitleField;
     private Button mDateButton;
     private Button mTimeButton;
+    private Button mReportButton;
     private CheckBox mSolvedCheckBox;
 
 
@@ -154,7 +155,8 @@ public class CrimeFragment extends Fragment {
         mTitleField.setText(mCrime.getTitle());
         mTitleField.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -162,7 +164,20 @@ public class CrimeFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        mReportButton = (Button)view.findViewById(R.id.crime_report);
+        mReportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, getCrimeReport());
+                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.crime_report_subject));
+                startActivity(intent);
+            }
         });
 
         return view;
