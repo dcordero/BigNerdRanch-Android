@@ -33,12 +33,14 @@ public class CrimeFragment extends Fragment {
 
     private static final int REQUEST_DATE = 0;
     private static final int REQUEST_TIME = 1;
+    private static final int REQUEST_CONTACT = 2;
 
     private Crime mCrime;
 
     private TextView mTitleField;
     private Button mDateButton;
     private Button mTimeButton;
+    private Button mSuspectButton;
     private Button mReportButton;
     private CheckBox mSolvedCheckBox;
 
@@ -165,6 +167,14 @@ public class CrimeFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
+            }
+        });
+
+        mSuspectButton = (Button)view.findViewById(R.id.crime_suspect);
+        mSuspectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
