@@ -2,6 +2,7 @@ package com.bignerdranch.android.criminalintent;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
@@ -199,6 +200,13 @@ public class CrimeFragment extends Fragment {
                 startActivityForResult(pickContentIntent, REQUEST_CONTACT);
             }
         });
+
+
+        PackageManager packageManager = getActivity().getPackageManager();
+        if (packageManager.resolveActivity(pickContentIntent, PackageManager.MATCH_DEFAULT_ONLY) == null) {
+            mSuspectButton.setEnabled(false);
+        }
+
 
         if(mCrime.getSuspect() != null) {
             mSuspectButton.setText(mCrime.getSuspect());
