@@ -26,8 +26,8 @@ Content (Roadmap)
 | 12      | Dialogs                                           | ✅
 | 13      | The Toolbar                                       | ✅
 | 14      | SQLite Databases                                  | ✅
-| 15      | Implicit Intents                                  | ♻️  Branch Chapter-15-ImplicitIntents
-| 16      | Taking Pictures with Intents                      |
+| 15      | Implicit Intents                                  | ✅
+| 16      | Taking Pictures with Intents                      | ♻️  Branch Chapter-16-TakingPicturesWithIntents
 | 17      | Two-Pane Master-Detail Interfaces                 |
 | 18      | Assets                                            |
 | 19      | Audio Playback with SoundPool                     |
