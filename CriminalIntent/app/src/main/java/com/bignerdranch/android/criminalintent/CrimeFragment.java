@@ -26,6 +26,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -42,6 +43,7 @@ public class CrimeFragment extends Fragment {
     private static final int REQUEST_CONTACT = 2;
 
     private Crime mCrime;
+    private File mPhotoFile;
 
     private TextView mTitleField;
     private Button mDateButton;
@@ -104,6 +106,7 @@ public class CrimeFragment extends Fragment {
         setHasOptionsMenu(true);
         UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
         mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
+        mPhotoFile = CrimeLab.get(getActivity()).getPhotoFile(mCrime);
     }
 
     @Override
