@@ -1,5 +1,6 @@
 package com.bignerdranch.android.criminalintent;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 
 public class CrimeListActivity extends SingleFragmentActivity implements CrimeListFragment.Callbacks {
@@ -16,6 +17,15 @@ public class CrimeListActivity extends SingleFragmentActivity implements CrimeLi
 
     @Override
     public void onCrimeSelected(Crime crime) {
-        
+        if (findViewById(R.id.detail_fragment_container) == null) {
+            Intent intent = CrimePagerActivity.newIntent(CrimeListActivity.this, crime.getId());
+            startActivity(intent);
+        }
+        else {
+            Fragment newDetail = CrimeFragment.newInstance(crime.getId());
+            getSupportFragmentManager().beginTransaction()
+                                       .replace(R.id.detail_fragment_container, newDetail)
+                                       .commit();
+        }
     }
 }
