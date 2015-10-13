@@ -29,8 +29,8 @@ Content (Roadmap)
 | 15      | Implicit Intents                                  | ✅
 | 16      | Taking Pictures with Intents                      | ✅
 | 17      | Two-Pane Master-Detail Interfaces                 | ✅
-| 18      | Assets                                            | ♻️  Branch Chapter-18-Assets
-| 19      | Audio Playback with SoundPool                     |
+| 18      | Assets                                            | ✅
+| 19      | Audio Playback with SoundPool                     | ♻️  Branch Chapter-19-AudioPlaybackWithSoundPool
 | 20      | Styles and Themes                                 |
 | 21      | XML Drawables                                     |
 | 22      | More About Intents and Tasks                      |
