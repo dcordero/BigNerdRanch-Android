@@ -36,7 +36,7 @@ public class BeatBoxFragment extends Fragment {
     }
 
 
-    private class SoundHolder extends RecyclerView.ViewHolder {
+    private class SoundHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private Button mButton;
         private Sound mSound;
@@ -49,6 +49,12 @@ public class BeatBoxFragment extends Fragment {
         public void bindSound(Sound sound) {
             mSound = sound;
             mButton.setText(mSound.getName());
+            mButton.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            mBeatBox.playSound(mSound);
         }
     }
 
