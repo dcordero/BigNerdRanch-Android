@@ -31,8 +31,8 @@ Content (Roadmap)
 | 17      | Two-Pane Master-Detail Interfaces                 | ✅
 | 18      | Assets                                            | ✅
 | 19      | Audio Playback with SoundPool                     | ✅
-| 20      | Styles and Themes                                 | ♻️  Branch Chapter-20-StylesAndThemes
-| 21      | XML Drawables                                     |
+| 20      | Styles and Themes                                 | ✅ 
+| 21      | XML Drawables                                     | ♻️  Branch Chapter-21-XMLDrawables
 | 22      | More About Intents and Tasks                      |
 | 23      | HTTP & Background Tasks                           |
 | 24      | Loopers, Handlers, and HandlerThread              |
