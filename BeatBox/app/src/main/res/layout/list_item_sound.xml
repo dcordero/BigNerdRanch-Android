@@ -11,7 +11,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             tools:text="Sound name"/>
-        
+
 </FrameLayout>
 
 
