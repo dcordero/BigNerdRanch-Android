@@ -33,8 +33,8 @@ Content (Roadmap)
 | 19      | Audio Playback with SoundPool                     | ✅
 | 20      | Styles and Themes                                 | ✅ 
 | 21      | XML Drawables                                     | ✅
-| 22      | More About Intents and Tasks                      | ♻️  Branch Chapter-22-MoreAboutIntentsAndTasks
-| 23      | HTTP & Background Tasks                           |
+| 22      | More About Intents and Tasks                      | ✅ 
+| 23      | HTTP & Background Tasks                           | ♻️  Branch Chapter-23-HTTPAndBackgroundTasks
 | 24      | Loopers, Handlers, and HandlerThread              |
 | 25      | Search                                            |
 | 26      | Background Services                               |
