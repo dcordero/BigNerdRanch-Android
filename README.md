@@ -32,8 +32,8 @@ Content (Roadmap)
 | 18      | Assets                                            | ✅
 | 19      | Audio Playback with SoundPool                     | ✅
 | 20      | Styles and Themes                                 | ✅ 
-| 21      | XML Drawables                                     | ♻️  Branch Chapter-21-XMLDrawables
-| 22      | More About Intents and Tasks                      |
+| 21      | XML Drawables                                     | ✅
+| 22      | More About Intents and Tasks                      | ♻️  Branch Chapter-22-MoreAboutIntentsAndTasks
 | 23      | HTTP & Background Tasks                           |
 | 24      | Loopers, Handlers, and HandlerThread              |
 | 25      | Search                                            |
