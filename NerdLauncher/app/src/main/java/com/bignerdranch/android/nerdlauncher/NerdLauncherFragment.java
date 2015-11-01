@@ -81,4 +81,31 @@ public class NerdLauncherFragment extends Fragment {
             mNameTextView.setText(appName);
         }
     }
+
+    private class ActivityAdapter extends RecyclerView.Adapter<ActivityHolder> {
+
+        private final List<ResolveInfo> mActivities;
+
+        public ActivityAdapter(List<ResolveInfo> activities) {
+            mActivities = activities;
+        }
+
+        @Override
+        public ActivityHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+            View view = layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+            return new ActivityHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(ActivityHolder holder, int position) {
+            ResolveInfo resolveInfo = mActivities.get(position);
+            holder.bindActivity(resolveInfo);
+        }
+
+        @Override
+        public int getItemCount() {
+            return mActivities.size();
+        }
+    }
 }
