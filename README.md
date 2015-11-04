@@ -34,8 +34,8 @@ Content (Roadmap)
 | 20      | Styles and Themes                                 | ✅ 
 | 21      | XML Drawables                                     | ✅
 | 22      | More About Intents and Tasks                      | ✅ 
-| 23      | HTTP & Background Tasks                           | ♻️  Branch Chapter-23-HTTPAndBackgroundTasks
-| 24      | Loopers, Handlers, and HandlerThread              |
+| 23      | HTTP & Background Tasks                           | ✅
+| 24      | Loopers, Handlers, and HandlerThread              | ♻️  Branch Chapter-24-LoopersHandlersAndHandlerThread
 | 25      | Search                                            |
 | 26      | Background Services                               |
 | 27      | Broadcast Intents                                 |
