@@ -9,7 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Gallery;
 import android.widget.TextView;
+
+import java.util.List;
 
 public class PhotoGalleryFragment extends Fragment {
 
@@ -59,6 +62,32 @@ public class PhotoGalleryFragment extends Fragment {
 
         public void bindGalleryItem(GalleryItem item) {
             mTitleTextView.setText(item.toString());
+        }
+    }
+
+    private class PhotoAdapter extends RecyclerView.Adapter<PhotoHolder> {
+
+        private List<GalleryItem> mGalleryItems;
+
+        public PhotoAdapter(List<GalleryItem> items) {
+            mGalleryItems = items;
+        }
+
+        @Override
+        public PhotoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            TextView textView = new TextView(getActivity());
+            return new PhotoHolder(textView);
+        }
+
+        @Override
+        public void onBindViewHolder(PhotoHolder holder, int position) {
+            GalleryItem item = mGalleryItems.get(position);
+            holder.bindGalleryItem(item);
+        }
+
+        @Override
+        public int getItemCount() {
+            return mGalleryItems.size();
         }
     }
 }
