@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Gallery;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PhotoGalleryFragment extends Fragment {
@@ -19,11 +20,17 @@ public class PhotoGalleryFragment extends Fragment {
     private static final String TAG = "PhotoGalleryFragment";
 
     private RecyclerView mPhotoRecyclerView;
+    private List<GalleryItem> mItems = new ArrayList<>();
 
-    private class FetchItemsTasks extends AsyncTask<Void, Void, Void> {
-        @Override protected Void doInBackground(Void... params) {
-            new FlickrFetcher().fetchItems();
-            return null;
+    private class FetchItemsTasks extends AsyncTask<Void, Void, List<GalleryItem>> {
+        @Override protected List<GalleryItem> doInBackground(Void... params) {
+            return new FlickrFetcher().fetchItems();
+        }
+
+        @Override
+        protected void onPostExecute(List<GalleryItem> galleryItems) {
+            mItems = galleryItems;
+            setupAdapter();
         }
     }
 
@@ -48,7 +55,15 @@ public class PhotoGalleryFragment extends Fragment {
         mPhotoRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_photo_gallery_recycler_view);
         mPhotoRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
 
+        setupAdapter();
+
         return view;
+    }
+
+    private void setupAdapter() {
+        if (isAdded()) {
+            mPhotoRecyclerView.setAdapter(new PhotoAdapter(mItems));
+        }
     }
 
     private class PhotoHolder extends RecyclerView.ViewHolder {
