@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FlickrFetcher {
@@ -49,7 +50,10 @@ public class FlickrFetcher {
         return new String(getUrlBytes(urlSpec));
     }
 
-    public void fetchItems() {
+    public List<GalleryItem> fetchItems() {
+
+        List<GalleryItem> items = new ArrayList<>();
+
         try {
             String url = Uri.parse("https://api.flickr.com/services/rest/")
                     .buildUpon()
@@ -65,11 +69,14 @@ public class FlickrFetcher {
             jsonString = getUrlString(url);
             Log.i(TAG, "Received JSON: " + jsonString);
             JSONObject jsonBody = new JSONObject(jsonString);
+            parseItems(items, jsonBody);
         } catch (IOException e) {
             Log.e(TAG, "Failed to fetch: " + e);
         } catch (JSONException e) {
             Log.e(TAG, "Failed to parse JSON: " + e);
         }
+
+        return items;
     }
 
     public void parseItems(List<GalleryItem> items, JSONObject jsonBody) throws JSONException {
