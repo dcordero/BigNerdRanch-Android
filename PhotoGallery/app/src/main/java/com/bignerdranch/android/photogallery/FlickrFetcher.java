@@ -3,11 +3,16 @@ package com.bignerdranch.android.photogallery;
 import android.net.Uri;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 public class FlickrFetcher {
 
@@ -59,8 +64,31 @@ public class FlickrFetcher {
 
             jsonString = getUrlString(url);
             Log.i(TAG, "Received JSON: " + jsonString);
+            JSONObject jsonBody = new JSONObject(jsonString);
         } catch (IOException e) {
-            Log.i(TAG, "Failed to fetch: " + e);
+            Log.e(TAG, "Failed to fetch: " + e);
+        } catch (JSONException e) {
+            Log.e(TAG, "Failed to parse JSON: " + e);
+        }
+    }
+
+    public void parseItems(List<GalleryItem> items, JSONObject jsonBody) throws JSONException {
+
+        JSONObject photosJSONObject = jsonBody.getJSONObject("photos");
+        JSONArray photosJSONArray = photosJSONObject.getJSONArray("photo");
+
+        for (int i = 0; i < photosJSONArray.length(); i++) {
+            JSONObject photoJSONObject = photosJSONArray.getJSONObject(i);
+
+            GalleryItem item = new GalleryItem();
+            item.setId(photoJSONObject.getString("id"));
+            item.setCaption(photoJSONObject.getString("title"));
+
+            if (!photoJSONObject.has("url_s")) {
+                continue;
+            }
+            item.setUrl(photoJSONObject.getString("url_s"));
+            items.add(item);
         }
     }
 }
