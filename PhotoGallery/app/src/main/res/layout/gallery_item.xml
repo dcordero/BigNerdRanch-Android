@@ -1,0 +1,7 @@
+<ImageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_photo_gallery_image_view"
+    android:scaleType="centerCrop"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"/>
