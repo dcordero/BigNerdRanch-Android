@@ -1,21 +1,19 @@
 package com.bignerdranch.android.criminalintent;
 
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.support.v7.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.view.LayoutInflater;
 import android.widget.DatePicker;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class DatePickerFragment extends DialogFragment {
+public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
     public static final String EXTRA_DATE = "com.beignerdranch.android.criminalIntent.Date";
 
@@ -41,35 +39,19 @@ public class DatePickerFragment extends DialogFragment {
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        final DatePicker datePickerView = (DatePicker) LayoutInflater.from(getActivity()).inflate(R.layout.dialog_date, null);
-        datePickerView.init(year, month, day, null);
 
-        return new AlertDialog.Builder(getActivity())
-                .setView(datePickerView)
-                .setTitle(R.string.date_picker_title)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        int year = datePickerView.getYear();
-                        int month = datePickerView.getMonth();
-                        int day = datePickerView.getDayOfMonth();
-
-                        Date date = new GregorianCalendar(year, month, day).getTime();
-                        sendResult(Activity.RESULT_OK, date);
-                    }
-                })
-                .create();
+        DatePickerDialog dialog = new DatePickerDialog(getActivity(), this, year, month, day);
+        dialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+        return  dialog;
     }
 
-    private void sendResult(int resultCode, Date date) {
-
-        if (getTargetFragment() == null) {
-            return;
-        }
+    @Override
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        Date date = new GregorianCalendar(year, monthOfYear, dayOfMonth).getTime();
 
         Intent intent = new Intent();
         intent.putExtra(EXTRA_DATE, date);
 
-        getTargetFragment().onActivityResult(getTargetRequestCode(), resultCode, intent);
+        getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, intent);
     }
 }
